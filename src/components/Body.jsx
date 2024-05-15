@@ -21,7 +21,7 @@ const Body = () => {
     try {
       const response = await fetch(corsProxyUrl + apiUrl, {
         headers: {
-          'x-cors-api-key': 'temp_2d9a22a9c13bd4fe3b2dede499458cc0'
+          'x-cors-api-key': 'temp_5117949ddd5685424a703d0a7310a4ba'
         }
       });
       
