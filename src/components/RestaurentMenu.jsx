@@ -1,62 +1,23 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constant";
 import ShimmerMenu from "./ShimmerMenu";
 import MenuCard from "./MenuCard";
+import useRestaurantMenu from "../hooks/useRestaurantMenu";
 
 const RestaurentMenu = () => {
-  const [ResInfo, setResInfo] = useState(null);
   const { resId } = useParams();
+  const ResInfo = useRestaurantMenu(resId);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  if (ResInfo === null) return <ShimmerMenu />;
 
-  const fetchData = async () => {
-    try {
-      const corsProxyUrl = "https://proxy.cors.sh/";
-      const response = await fetch(corsProxyUrl + MENU_API + resId, {
-        headers: {
-          "x-cors-api-key": "temp_5117949ddd5685424a703d0a7310a4ba",
-        },
-      });
+  const { name, avgRating, totalRatingsString, sla, cuisines, costForTwoMessage, areaName } = ResInfo?.cards[2]?.card?.card?.info ?? {};
 
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch data. Status: ${response.status} (${response.statusText})`
-        );
-      }
+  const itemCards = ResInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards ??
+    ResInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards ?? [];
 
-      const json = await response.json();
-      console.log(json);
-      // setResInfo(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
-      setResInfo(json?.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  if (ResInfo === null) {
-    return <ShimmerMenu />;
-  }
-
-  const {
-    name,
-    avgRating,
-    totalRatingsString,
-    sla,
-    cuisines,
-    costForTwoMessage,
-    areaName,
-  } = ResInfo?.cards[2]?.card?.card?.info;
-
-  const { itemCards } =
-    ResInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-
-  let { cards } = ResInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR;
+  let cards = ResInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards ?? [];
   let cardsLen = cards.length - 1;
 
-  const { area, completeAddress } = cards[cardsLen]?.card?.card;
+  const { area, completeAddress } = cards[cardsLen]?.card?.card ?? {};
 
   return (
     <div className="resMenu">
@@ -67,19 +28,19 @@ const RestaurentMenu = () => {
           <span className="material-symbols-outlined">star</span>&nbsp;
           {avgRating} ({totalRatingsString}) &nbsp;|&nbsp; {costForTwoMessage}
         </h4>
-        <h3 className="resMenuDetailCuisines">{cuisines.join(", ")}</h3>
+        <h3 className="resMenuDetailCuisines">{cuisines?.join(", ")}</h3>
         <h4 className="resMenuDetailOutlet">
           Outlet : <span>{areaName}</span>
         </h4>
         <h4 className="resMenuDetailTitle">
           <span className="material-symbols-outlined">schedule</span>&nbsp;
-          {sla.slaString}
+          {sla?.slaString}
         </h4>
       </div>
 
       <h1>MENU</h1>
       <div className="line"></div>
-      {itemCards && itemCards.length > 0 ? (
+      {itemCards.length > 0 ? (
         <div className="resMenuCard-container">
           {itemCards.map((item) => (
             <MenuCard key={item.card.info.id} menuItemInfo={item} />
@@ -94,10 +55,13 @@ const RestaurentMenu = () => {
       <div className="footer-menu-item">
         <span className="material-symbols-outlined">location_on</span>
         <h4>{name}</h4>
-        <h5>(Outlet : <span>{area}</span>)</h5>
+        <h5>
+          (Outlet : <span>{area}</span>)
+        </h5>
         <h6>{completeAddress}</h6>
       </div>
     </div>
   );
 };
+
 export default RestaurentMenu;
