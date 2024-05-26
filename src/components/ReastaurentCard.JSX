@@ -29,4 +29,15 @@ const { name, cuisines, avgRating, costForTwo, sla, cloudinaryImageId } =
   );
 };
 
+export const withVegLabelCard = (ReastaurentCard) => {
+  return (props) => {
+    return(
+      <>
+      <label className="veglabel">Veg</label>
+      <ReastaurentCard {...props}/>
+      </>
+    )
+  }
+}
+
 export default ReastaurentCard;

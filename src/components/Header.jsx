@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const Header = () => {
 
   const [LoginBtnName, setLoginBtnName] = useState("Login");
+
+  const onlineStatus = useOnlineStatus();
 
   function showSideBar() {
     const side = document.querySelector(".nav-items-sidebar");
@@ -34,12 +37,13 @@ const Header = () => {
           <li className="nav-item-list"> <Link className="hide" to="/offers">Deals & Offers</Link></li>
           <li className="nav-item-list"> <Link className="hide" to="/contact">Contact Us</Link></li>
           <li className="nav-item-list"> <Link className="hide" to="/help">Help</Link></li>
+          <li style={{color:"white"}}>Status : {onlineStatus ? "✅ Online" : "🔴 Offline"}</li>
         </ul>
       </div>
 
       <div className="cart">
         <span className="material-symbols-outlined cart-btn">shopping_cart</span>
-        <button className="loginBtn" onClick={
+        <button className="loginBtn hide" onClick={
           ()=>{LoginBtnName==="Login" ? setLoginBtnName("Logout") : setLoginBtnName("Login")}
         }
           >{LoginBtnName}<span className="material-symbols-outlined">{LoginBtnName.toLowerCase()}</span>
@@ -57,6 +61,12 @@ const Header = () => {
         <li><Link to="/offers">Deals & Offers</Link></li>
         <li><Link to="/contact">Contact Us</Link></li>
         <li><Link to="/help">Help</Link></li>
+        <li style={{color:"black", padding:"3px 10px"}}>Status : {onlineStatus ? "✅ Online" : "🔴 Offline"}</li>
+        <li><button className="loginBtn" style={{backgroundColor:"white", color:"black"}} onClick={
+          ()=>{LoginBtnName==="Login" ? setLoginBtnName("Logout") : setLoginBtnName("Login")}
+        }
+          >{LoginBtnName}<span className="material-symbols-outlined">{LoginBtnName.toLowerCase()}</span>
+        </button></li>
       </ul>
     </div>
   );
