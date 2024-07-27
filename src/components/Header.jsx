@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
 import useOnlineStatus from "../hooks/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+
+  const cartItems = useSelector((store)=>store.cart.items);
 
   const [LoginBtnName, setLoginBtnName] = useState("Login");
 
@@ -42,7 +45,10 @@ const Header = () => {
       </div>
 
       <div className="cart">
-        <span className="material-symbols-outlined cart-btn">shopping_cart</span>
+        <Link className="cart-button" to="/cart">
+          <span className="material-symbols-outlined cart-btn">shopping_cart</span>
+          <span className="cart-items">({cartItems.length})</span>
+        </Link>
         <button className="loginBtn hide" onClick={
           ()=>{LoginBtnName==="Login" ? setLoginBtnName("Logout") : setLoginBtnName("Login")}
         }

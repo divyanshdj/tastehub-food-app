@@ -1,4 +1,165 @@
 @import "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap";
+.help-container {
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin-bottom: 50px;
+  padding: 20px;
+  display: flex;
+}
+
+.help-content {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.help-title {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.help-description {
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.faq-title {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+.faq-container {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  text-align: left;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color .3s;
+  display: flex;
+}
+
+.faq-question:hover {
+  background-color: #f0f0f0;
+}
+
+.faq-answer {
+  color: #555;
+  padding: 15px;
+  font-size: 1em;
+  display: none;
+}
+
+.faq-answer.show {
+  display: block;
+}
+
+.accordian {
+  cursor: pointer;
+  border-bottom: 2px solid #dedede;
+  width: 70vw;
+  margin: 30px 0;
+  padding: 4px;
+}
+
+.accordian-header {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.accordian-title {
+  font-weight: bold;
+}
+
+.resMenuCard {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15vh;
+  margin: 30px 0;
+  padding: 0 10px;
+  display: flex;
+}
+
+.resMenuCardDetails {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  display: flex;
+}
+
+.nameItem {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.priceItem {
+  width: 100%;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.descItem {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.resMenuCardImg {
+  justify-content: flex-end;
+  align-items: center;
+  width: 20%;
+  display: flex;
+}
+
+.resMenuCardImg img {
+  border-radius: 10px;
+  width: 80px;
+}
+
+.res-menu-btn {
+  color: green;
+  cursor: pointer;
+  background-color: #fff;
+  border: #0000;
+  border-radius: 5px;
+  margin: 90px 10px 0;
+  padding: 2px 10px;
+  font-weight: 600;
+  position: absolute;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -79,9 +240,28 @@ body {
   display: flex;
 }
 
+.cart a {
+  text-decoration: none;
+  list-style: none;
+}
+
 .cart-btn {
   color: #fff;
   cursor: pointer;
+}
+
+.cart-items {
+  color: #fff;
+  cursor: pointer;
+  padding: 0 1px;
+  font-size: large;
+  font-weight: 500;
+}
+
+.cart-button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .loginBtn {
@@ -410,64 +590,8 @@ body {
 
 .line {
   background-color: #2d2d2d;
-  width: 80%;
+  width: 70%;
   height: .3px;
-}
-
-.resMenuCard {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 50vw;
-  height: 15vh;
-  margin: 35px 0;
-  display: flex;
-  overflow: hidden;
-}
-
-.resMenuCardDetails {
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 75%;
-  display: flex;
-}
-
-.nameItem {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  font-size: 20px;
-  font-weight: 700;
-  overflow: hidden;
-}
-
-.priceItem {
-  width: 100%;
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.descItem {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  font-size: 12px;
-  font-weight: 400;
-  overflow: hidden;
-}
-
-.resMenuCardImg {
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-  display: flex;
-}
-
-.resMenuCardImg img {
-  width: 100px;
 }
 
 .footer-menu-item {
@@ -491,132 +615,6 @@ body {
 
 .footer-menu-item h6 {
   font-weight: 300;
-}
-
-.help-container {
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  margin-bottom: 50px;
-  padding: 20px;
-  display: flex;
-}
-
-.help-content {
-  border-radius: 10px;
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-}
-
-.help-title {
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2em;
-}
-
-.help-description {
-  color: #555;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.2em;
-}
-
-.faq-title {
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.8em;
-}
-
-.faq-container {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.faq-item {
-  border-bottom: 1px solid #ddd;
-}
-
-.faq-item:last-child {
-  border-bottom: none;
-}
-
-.faq-question {
-  text-align: left;
-  cursor: pointer;
-  background-color: #f9f9f9;
-  border: none;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 15px;
-  font-size: 1em;
-  font-weight: 500;
-  transition: background-color .3s;
-  display: flex;
-}
-
-.faq-question:hover {
-  background-color: #f0f0f0;
-}
-
-.faq-answer {
-  color: #555;
-  padding: 15px;
-  font-size: 1em;
-  display: none;
-}
-
-.faq-answer.show {
-  display: block;
-}
-
-.about-container {
-  border-radius: 10px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px;
-}
-
-.about-title {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2.5em;
-}
-
-.about-content {
-  flex-direction: column;
-  gap: 20px;
-  display: flex;
-}
-
-.about-section {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px #0000001a;
-}
-
-.about-section h2 {
-  color: #2d2d2d;
-  margin-bottom: 10px;
-  font-size: 1.8em;
-}
-
-.about-section p, .about-section ul {
-  color: #555;
-  font-size: 1.1em;
-  line-height: 1.6;
-}
-
-.about-section ul {
-  padding-left: 20px;
-  list-style-type: disc;
 }
 
 .contact-container {
@@ -806,6 +804,10 @@ body {
   .rest-rating-number, .location {
     font-size: 1.5vw;
   }
+
+  .resMenuCard {
+    margin: 20px 0;
+  }
 }
 
 @media (width <= 880px) {
@@ -859,7 +861,22 @@ body {
     font-size: 25px;
   }
 
-  .resMenuDetailCard, .resMenuCard, .footer-menu-item {
+  .resMenuDetailCard, .line {
+    width: 80vw;
+  }
+
+  .resMenuCard {
+    width: 80vw;
+    margin: 15px 0;
+  }
+
+  .descItem, .nameItem {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .accordian, .footer-menu-item {
     width: 80vw;
   }
 
@@ -966,8 +983,8 @@ body {
     width: 97vw;
   }
 
-  .resMenuCard {
-    width: 90vw;
+  .resMenuCard, .accordian {
+    width: 95vw;
   }
 
   .footer-menu-item {
@@ -979,5 +996,193 @@ body {
   .filter-btn {
     font-size: 2vw;
   }
+}
+
+.cart-page-empty {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+}
+
+.cart-page-empty h2 {
+  text-align: center;
+  color: #333;
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+.cart-page-empty h3 {
+  text-align: center;
+  color: #333;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.link-home-btn {
+  color: #fff;
+  background-color: #333;
+  border: #0000;
+  border-radius: 50px;
+  margin: 15px auto;
+  padding: 10px 30px;
+  font-size: larger;
+}
+
+.link-home-btn a {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+}
+
+.cart-page {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  max-width: 50vw;
+  margin: 10px auto;
+  padding: 20px;
+  display: flex;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.cart-page h1 {
+  text-align: center;
+  color: #333;
+}
+
+.cart-items {
+  flex-direction: column;
+  gap: 20px;
+  display: flex;
+}
+
+.cart-item-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  display: flex;
+  box-shadow: 0 2px 4px #0000000d;
+}
+
+.cart-item-img img {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+}
+
+.cart-item-details {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.cart-item-name {
+  color: #333;
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-item-price {
+  color: #666;
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.cart-quantity-controls {
+  align-items: center;
+  display: flex;
+}
+
+.cart-quantity-controls button {
+  color: #333;
+  cursor: pointer;
+  background-color: #d1d1d1;
+  border: none;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  font-size: 16px;
+  display: flex;
+}
+
+.cart-quantity-controls button:hover {
+  background-color: #bbb;
+}
+
+.cart-quantity-controls span {
+  color: #333;
+  font-size: 16px;
+}
+
+.cart-total {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cart-clear-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #f66;
+  border: none;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  display: block;
+}
+
+.cart-clear-btn:hover {
+  background-color: #ff4d4d;
+}
+
+.cart-bill-details {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 70%;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+.cart-bill-details h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.bill-item {
+  justify-content: space-between;
+  padding: 5px 0;
+  display: flex;
+}
+
+.bill-total {
+  color: #333;
+  border-top: 1px solid #ddd;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px 0;
+  font-weight: bold;
+  display: flex;
 }
 /*# sourceMappingURL=index.c41b5a0e.css.map */

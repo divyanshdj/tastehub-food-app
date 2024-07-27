@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../css/Help.css";
 
 const Help = () => {
   // Fake FAQ data

@@ -1,3 +1,39 @@
+# RestaurentCategory
+
+```
+import { useRef } from "react";
+import "../css/CategoryAccordian.css";
+import ItemsCategory from "./ItemsCategory";
+
+const RestaurentCategory = ({ data, showItems, setShowIndex }) => {
+  const headerRef = useRef(null);
+
+  const handleClick = () => {
+    setShowIndex(prevIndex => (prevIndex === data.title ? null : data.title));
+    headerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  return (
+    <div className="accordian">
+      <div className="accordian-header" onClick={handleClick} ref={headerRef}>
+        <span className="accordian-title">
+          {data.title} ({data.itemCards.length})
+        </span>
+        <span className="material-symbols-outlined">keyboard_arrow_down</span>
+      </div>
+      <div className="accordian-items">
+        {showItems && <ItemsCategory items={data.itemCards} />}
+      </div>
+    </div>
+  );
+};
+
+export default RestaurentCategory;
+```
+
+# RestaurentMenu
+
+```
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ShimmerMenu from "./ShimmerMenu";
@@ -8,7 +44,7 @@ const RestaurentMenu = () => {
   const { resId } = useParams();
   const ResInfo = useRestaurantMenu(resId);
 
-  const [showIndex, setShowIndex] = useState(0);
+  const [showIndex, setShowIndex] = useState(null); 
 
   if (ResInfo === null) return <ShimmerMenu />;
 
@@ -59,12 +95,12 @@ const RestaurentMenu = () => {
       <div className="line"></div>
 
       <div className="menuCardItems">
-        {Category.map((cat, index) => (
+        {Category.map((cat) => (
           <RestaurentCategory
             key={cat.card?.card?.title}
             data={cat.card?.card}
-            showItems={index === showIndex ? true : false}
-            setShowIndex={()=>setShowIndex(index === showIndex ? null : index)}
+            showItems={showIndex === cat.card?.card?.title}
+            setShowIndex={setShowIndex}
           />
         ))}
       </div>
@@ -82,3 +118,4 @@ const RestaurentMenu = () => {
 };
 
 export default RestaurentMenu;
+```
