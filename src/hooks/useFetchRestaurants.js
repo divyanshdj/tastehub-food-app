@@ -7,7 +7,7 @@ const useFetchRestaurants = (API_URL) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const corsProxyUrl = "https://proxy.cors.sh/https://acme.com";
+        const corsProxyUrl = "https://proxy.cors.sh/";
         const response = await fetch(corsProxyUrl + API_URL, {
           headers: {
              'x-cors-api-key': 'temp_cfb182a4c0504ea1983397e3cdf337cd'
