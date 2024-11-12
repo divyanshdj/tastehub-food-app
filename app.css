@@ -79,7 +79,7 @@ body {
   align-items: center;
 }
 
-.cart a{
+.cart a {
   text-decoration: none;
   list-style: none;
 }
@@ -97,7 +97,7 @@ body {
   cursor: pointer;
 }
 
-.cart-button{
+.cart-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -514,81 +514,6 @@ body {
   margin: 5px 0;
 }
 
-.offers-container {
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-}
-
-.offers-title {
-  text-align: center;
-  font-size: 2em;
-  color: #2d2d2d;
-  margin-bottom: 20px;
-}
-
-.offer-card-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.offer-card {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  text-align: center;
-  padding: 20px;
-  margin: 5px 0;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.offer-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.offer-image {
-  max-width: 100px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-}
-
-.offer-name {
-  font-size: 1.5em;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.offer-description {
-  font-size: 1em;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.offer-validity {
-  font-size: 0.9em;
-  color: #888;
-  margin-bottom: 15px;
-}
-
-.offer-button {
-  background-color: #ff4500;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
-}
-
-.offer-button:hover {
-  background-color: #ff2f00;
-}
-
 .offline-container {
   display: flex;
   flex-direction: column;
@@ -655,7 +580,7 @@ body {
   .location {
     font-size: 1.5vw;
   }
-  .resMenuCard{
+  .resMenuCard {
     margin: 20px 0px;
   }
 }
@@ -706,19 +631,20 @@ body {
   .resMenuDetailCard {
     width: 80vw;
   }
-  .line{
+  .line {
     width: 80vw;
   }
   .resMenuCard {
     width: 80vw;
     margin: 15px 0px;
   }
-  .descItem,.nameItem{
+  .descItem,
+  .nameItem {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .accordian{
+  .accordian {
     width: 80vw;
   }
   .footer-menu-item {
@@ -821,7 +747,7 @@ body {
   .resMenuCard {
     width: 95vw;
   }
-  .accordian{
+  .accordian {
     width: 95vw;
   }
   .footer-menu-item {
