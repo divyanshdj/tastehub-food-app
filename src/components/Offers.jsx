@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/Offers.css';
 
 const Offers = () => {
   return (
@@ -75,6 +76,20 @@ const Offers = () => {
             <h2 className="offer-name">10% Off for Returning Customers</h2>
             <p className="offer-description">Enjoy 10% off your next order.</p>
             <p className="offer-validity">Valid until 31st Dec 2024</p>
+            <button className="offer-button">Order Now</button>
+          </div>
+        </div>
+
+        <div className="offer-card">
+          <img
+            className="offer-image"
+            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D"
+            alt="Offer Image 6"
+          />
+          <div className="offer-details">
+            <h2 className="offer-name">Buy One, Get One Free</h2>
+            <p className="offer-description">Buy one meal, get one free!</p>
+            <p className="offer-validity">Valid until 30th Sept 2024</p>
             <button className="offer-button">Order Now</button>
           </div>
         </div>
