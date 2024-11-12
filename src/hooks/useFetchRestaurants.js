@@ -10,7 +10,7 @@ const useFetchRestaurants = (API_URL) => {
         const corsProxyUrl = "https://proxy.cors.sh/";
         const response = await fetch(corsProxyUrl + API_URL, {
           headers: {
-             'x-cors-api-key': 'temp_cfb182a4c0504ea1983397e3cdf337cd'
+            'x-cors-api-key': 'temp_b115edb34e36afa3d0962dc415067871'
           }
         });
 
