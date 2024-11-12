@@ -1,0 +1,81 @@
+/* Error Page Styles */
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+.error-container {
+  text-align: center;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.error-title {
+  font-size: 2.5rem;
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.error-status {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.error-description {
+  font-size: 1rem;
+  margin: 20px 0;
+  color: #666;
+}
+
+.error-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-home, .btn-retry {
+  padding: 12px 25px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-home:hover, .btn-retry:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Styles for Desktop */
+@media (min-width: 768px) {
+  .error-page {
+    padding: 0 20px;
+  }
+
+  .error-container {
+    max-width: 800px;
+    padding: 50px;
+  }
+
+  .error-title {
+    font-size: 3rem;
+  }
+
+  .error-status {
+    font-size: 1.5rem;
+  }
+
+  .error-description {
+    font-size: 1.2rem;
+  }
+}

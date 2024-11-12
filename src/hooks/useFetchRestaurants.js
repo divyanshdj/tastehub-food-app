@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import resList from "../utils/mockData";
 
 const useFetchRestaurants = (API_URL) => {
   const [restaurants, setRestaurants] = useState([]);
@@ -7,6 +8,7 @@ const useFetchRestaurants = (API_URL) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log("Fetching restaurants...");
         const corsProxyUrl = "https://proxy.cors.sh/";
         const response = await fetch(corsProxyUrl + API_URL, {
           headers: {
@@ -20,10 +22,18 @@ const useFetchRestaurants = (API_URL) => {
 
         const jsonData = await response.json();
         const apiRestaurants = jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+
+        // If the API data is empty, use mock data
+        if (apiRestaurants.length === 0) {
+          throw new Error("No restaurants found in the API response.");
+        }
+
         setRestaurants(apiRestaurants);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data, using mock data:", error);
+        // Using mock data in case of an error or no data from API
+        setRestaurants(resList);
         setIsLoading(false);
       }
     };
