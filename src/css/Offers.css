@@ -1,0 +1,101 @@
+/* General Layout for the Offers Page */
+.offers-container {
+    padding: 40px 10%;
+    text-align: center;
+  }
+  
+  .offers-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  .offer-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  /* Styling for Individual Offer Cards */
+  .offer-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Subtle shadow effect when hovering over the card */
+  .offer-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Image Styling for the Offer */
+  .offer-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  /* Offer Text Details */
+  .offer-details {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .offer-name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .offer-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .offer-validity {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 15px;
+  }
+  
+  /* Button Styling */
+  .offer-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .offer-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .offers-container {
+      padding: 40px 5%;
+    }
+  
+    .offer-card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .offer-card {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
