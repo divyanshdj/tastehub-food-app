@@ -45,11 +45,18 @@ const CartPage = () => {
     <>
       {cartItems.length === 0 ? (
         <div className="cart-page-empty">
-            <img src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png" alt="cart-empty" style={{height:"400px"}} />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png"
+            alt="cart-empty"
+            style={{ height: "400px" }}
+          />
           <h2>Your cart is empty!</h2>
           <h3>You can go to home page to view more restaurants</h3>
           <div className="link-home-btn">
-          <Link to="/">Home <span className="material-symbols-outlined">open_in_new</span></Link>
+            <Link to="/">
+              Home{" "}
+              <span className="material-symbols-outlined">open_in_new</span>
+            </Link>
           </div>
         </div>
       ) : (
@@ -84,12 +91,10 @@ const CartPage = () => {
                     >
                       +
                     </button>
-                    <button
-                      onClick={() => handleRemoveItem(item.card.info.id)}
-                    >
+                    <button onClick={() => handleRemoveItem(item.card.info.id)}>
                       <span class="material-symbols-outlined">
-delete_forever
-</span>
+                        delete_forever
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -104,21 +109,24 @@ delete_forever
             </div>
             <div className="bill-item">
               <span>Delivery Fee</span>
-              <span>₹19</span>
+              <span>₹40</span>
             </div>
             <div className="bill-item">
               <span>Platform Fee</span>
-              <span>₹6</span>
+              <span>₹6.22</span>
             </div>
             <div className="bill-item">
               <span>GST and Restaurant Charges</span>
-              <span>₹14.88</span>
+              <span>₹24.78</span>
             </div>
             <div className="bill-total">
               <span>TO PAY</span>
-              <span>₹{(totalAmount + 19 + 6 + 14.88).toFixed(2)}</span>
+              <span>₹{(totalAmount + 40 + 6.22 + 24.78).toFixed(2)}</span>
             </div>
           </div>
+          <button className="cart-order-btn">
+            Order
+          </button>
           <button className="cart-clear-btn" onClick={handleClearCart}>
             Clear Cart
           </button>
