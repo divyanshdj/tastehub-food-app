@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../img/logo.png";
+import Logo from "../img/logo.png"
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import { useSelector } from "react-redux";
 
@@ -30,7 +30,7 @@ const Header = () => {
       </svg>
 
       <div className="logo">
-        <img src={logo} alt="logo" />
+        <img src={Logo} alt="logo" />
       </div>
       
       <div className="nav">

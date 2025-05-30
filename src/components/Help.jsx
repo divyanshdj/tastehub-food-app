@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../css/Help.css";
 
 const Help = () => {
-  // Fake FAQ data
   const faqs = [
     {
       question: "How do I create an account?",
@@ -36,7 +35,7 @@ const Help = () => {
       question: "How do I update my payment information?",
       answer: "To update your payment information, go to your account settings and select the option to manage payment methods. Follow the instructions to add, edit, or remove payment methods.",
     },
-  ];  
+  ];
 
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -58,16 +57,23 @@ const Help = () => {
               <button
                 className="faq-question"
                 onClick={() => handleToggleAccordion(index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
               >
-                {faq.question} <span class="material-symbols-outlined">add</span>
+                {faq.question}{" "}
+                <span className="material-symbols-outlined">
+                  {openIndex === index ? "remove" : "add"}
+                </span>
               </button>
-              <div className={`faq-answer ${openIndex === index ? "show" : ""}`}>
+              <div
+                id={`faq-answer-${index}`}
+                className={`faq-answer ${openIndex === index ? "show" : ""}`}
+              >
                 {faq.answer}
               </div>
             </div>
           ))}
         </div>
-        {/* Add your contact information here */}
       </div>
     </div>
   );

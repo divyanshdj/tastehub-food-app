@@ -13,6 +13,9 @@ import "../app.css";
 import { Provider } from "react-redux";
 import tastehubStore from "./utils/tastehubStore";
 import CartPage from "./components/CartPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PaymentPage from "./components/PaymentPage";
 
 const About = lazy(() => import("./components/About"));
 
@@ -22,6 +25,14 @@ const AppLayout = () => {
       <Provider store={tastehubStore}>
         <Header />
         <Outlet />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          theme="light"
+        />
       </Provider>
     </>
   );
@@ -42,7 +53,7 @@ const appRouter = createBrowserRouter([
           <Suspense fallback={<div>Loading About Page...</div>}>
             <About />
           </Suspense>
-        ),        
+        ),
       },
       {
         path: "/contact",
@@ -63,6 +74,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <CartPage />,
+      },
+      {
+        path: "/payment",
+        element: <PaymentPage />,
       },
     ],
     errorElement: <Error />,

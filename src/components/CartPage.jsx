@@ -8,26 +8,32 @@ import {
 } from "../utils/cartSlice";
 import { CDN2_URL } from "../utils/constant";
 import "../css/CartPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CartPage = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClearCart = () => {
     dispatch(clearCart());
+    toast.warn("🗑️ Cart cleared!", { autoClose: 500 });
   };
 
   const handleIncreaseQuantity = (id) => {
     dispatch(increaseQuantity(id));
+    toast.info("➕ Item quantity increased");
   };
 
   const handleDecreaseQuantity = (id) => {
     dispatch(decreaseQuantity(id));
+    toast.info("➖ Item quantity decreased");
   };
 
   const handleRemoveItem = (id) => {
     dispatch(removeItem(id));
+    toast.error("❌ Item removed from cart");
   };
 
   const totalAmount = cartItems.reduce(
@@ -40,6 +46,14 @@ const CartPage = () => {
         (item.quantity || 1),
     0
   );
+
+  const handleOrder = () => {
+    if (cartItems.length === 0) {
+      toast.error("Your cart is empty! Add items first.");
+      return;
+    }
+    navigate("/payment");
+  };
 
   return (
     <>
@@ -54,8 +68,7 @@ const CartPage = () => {
           <h3>You can go to home page to view more restaurants</h3>
           <div className="link-home-btn">
             <Link to="/">
-              Home{" "}
-              <span className="material-symbols-outlined">open_in_new</span>
+              Home <span className="material-symbols-outlined">open_in_new</span>
             </Link>
           </div>
         </div>
@@ -75,9 +88,11 @@ const CartPage = () => {
                   <h4 className="cart-item-name">{item.card.info.name}</h4>
                   <h5 className="cart-item-price">
                     ₹
-                    {(item.card.info.finalPrice ||
-                      item.card.info.price ||
-                      item.card.info.defaultPrice) / 100}
+                    {(
+                      (item.card.info.finalPrice ||
+                        item.card.info.price ||
+                        item.card.info.defaultPrice) / 100
+                    ).toFixed(2)}
                   </h5>
                   <div className="cart-quantity-controls">
                     <button
@@ -92,7 +107,7 @@ const CartPage = () => {
                       +
                     </button>
                     <button onClick={() => handleRemoveItem(item.card.info.id)}>
-                      <span class="material-symbols-outlined">
+                      <span className="material-symbols-outlined">
                         delete_forever
                       </span>
                     </button>
@@ -124,7 +139,7 @@ const CartPage = () => {
               <span>₹{(totalAmount + 40 + 6.22 + 24.78).toFixed(2)}</span>
             </div>
           </div>
-          <button className="cart-order-btn">
+          <button className="cart-order-btn" onClick={handleOrder}>
             Order
           </button>
           <button className="cart-clear-btn" onClick={handleClearCart}>
