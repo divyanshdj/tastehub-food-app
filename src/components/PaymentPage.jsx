@@ -106,9 +106,12 @@ const PaymentPage = () => {
         ))}
       </div>
 
-      <h3 style={{ textAlign: "left", marginBottom: "30px" }}>
-        Total: ₹{totalAmount.toFixed(2)}
-      </h3>
+      <div style={{ textAlign: "left", marginBottom: "30px" }}>
+  <p>Delivery: ₹40.00</p>
+  <p>Platform Fee (GST): ₹6.22</p>
+  <p>Restaurant Charges: ₹24.78</p>
+  <h3>Total: ₹{(totalAmount + 40 + 7 + 24).toFixed(2)}</h3>
+</div>
 
       <form onSubmit={handlePaymentSubmit}>
         <div style={{ marginBottom: "20px", fontSize: "18px" }}>
@@ -178,6 +181,7 @@ const PaymentPage = () => {
                   value={paymentDetails.expiry}
                   onChange={handleChange}
                   required
+                  min="2025-06"
                   style={{
                     width: "100%",
                     padding: "10px",
@@ -193,6 +197,7 @@ const PaymentPage = () => {
                   type="password"
                   name="cvv"
                   maxLength="3"
+                  autoComplete="on"
                   value={paymentDetails.cvv}
                   onChange={handleChange}
                   placeholder="123"
