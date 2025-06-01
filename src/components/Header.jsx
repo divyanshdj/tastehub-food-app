@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../img/logo.png"
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import { useSelector } from "react-redux";
 
@@ -30,7 +29,7 @@ const Header = () => {
       </svg>
 
       <div className="logo">
-        <img src={Logo} alt="logo" />
+        <img src="https://divyanshportfoilo.netlify.app/assets/img/logo.png" alt="logo" />
       </div>
       
       <div className="nav">
