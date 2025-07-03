@@ -8,7 +8,7 @@ import "../css/RestaurentMenu.css"; // Ensure this CSS file includes responsive 
 const RestaurentMenu = () => {
   const { resId } = useParams();
   const ResInfo = useRestaurantMenu(resId);
-  const [showIndex, setShowIndex] = useState(null);
+  const [showIndex, setShowIndex] = useState(0);
 
   if (!ResInfo) return <ShimmerMenu />;
 

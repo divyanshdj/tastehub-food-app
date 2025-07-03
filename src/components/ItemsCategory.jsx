@@ -20,7 +20,6 @@ const ItemsCategory = ({ items }) => {
           <div className="resMenuCardDetails">
             <h4 className="nameItem">{item.card.info.name}</h4>
             <h5 className="priceItem">
-              ₹
               {item.card.info.finalPrice / 100 ||
                 item.card.info.price / 100 ||
                 item.card.info.defaultPrice / 100}
@@ -33,9 +32,12 @@ const ItemsCategory = ({ items }) => {
           </div>
           <div className="resMenuCardImg">
             <img
-              src={CDN2_URL + item.card.info.imageId}
-              alt={item.card.info.name}
-            />
+  src={item.card.info.imageId ? CDN2_URL + item.card.info.imageId : "https://placehold.co/600x600?text=No+Image"}
+  alt={item.card.info.name}
+  onError={(e) => {
+    e.target.src = "https://placehold.co/600x600?text=No+Image";
+  }}
+/>
             <button
               className="res-menu-btn"
               onClick={() => handleAddItem(item)}

@@ -80,7 +80,8 @@ const Offers = () => {
 
   return (
     <div className="offers-container">
-      <h1 className="offers-title text-4xl font-bold text-gray-800 mb-10">Special Offers</h1>
+      <h1 className="offers-title">Special Offers</h1>
+      <p className="contact-subtitle">Grab the best deals on your favorite meals!</p>
       <div className="offer-card-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {offers.map((offer, index) => (
           <OfferCard

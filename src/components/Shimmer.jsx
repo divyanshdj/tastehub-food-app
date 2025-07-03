@@ -4,13 +4,13 @@ const Shimmer = () => {
   return (
     <>
       <div className="shimmer-header">
-        <div className="search-bar">
-          <input type="search" name="search" id="search" />
+        <div className="help-search">
+          <input type="search" name="search" id="search" className="search-input shimmer-search" />
         </div>
-        <div className="filter">
-          <button className="filter-btn"></button>
-          <button className="filter-btn"></button>
-          <button className="filter-btn"></button>
+        <div className="filter shimmer-container-filter">
+          <button className="filter-btn shimmer-filter"></button>
+          <button className="filter-btn shimmer-filter"></button>
+          <button className="filter-btn shimmer-filter"></button>
         </div>
       </div>
       <div className="shimmer-container">

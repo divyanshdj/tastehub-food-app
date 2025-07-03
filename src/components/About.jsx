@@ -1,44 +1,70 @@
 import "../css/About.css";
-
 const About = () => {
   return (
-    <div className="about-container">
-      <h1 className="about-title">About TasteHub</h1>
+    <div className="about-wrapper">
+      <div className="about-container">
+      <div className="about-hero">
+        <h1 className="about-title">About TasteHub</h1>
+        <p className="about-subtitle">Delivering happiness since 2020</p>
+      </div>
+
       <div className="about-content">
         <div className="about-section">
+          <div className="section-icon">restaurant</div>
           <h2>Our Mission</h2>
           <p>
-            At TasteHub, our mission is to bring delicious, high-quality meals
-            from your favorite local restaurants directly to your door. We aim
-            to make dining at home as convenient and enjoyable as dining out.
+            Bringing delicious meals from your favorite local restaurants 
+            directly to your door with convenience and care.
           </p>
         </div>
+
         <div className="about-section">
+          <div className="section-icon">history</div>
           <h2>Our Story</h2>
           <p>
-            TasteHub was founded in 2020 by a group of food enthusiasts who
-            wanted to make it easier for people to enjoy their favorite dishes
-            without leaving the comfort of their homes. Since then, we've grown
-            to partner with hundreds of restaurants and serve thousands of happy
-            customers every day.
+            Founded by food enthusiasts in 2020, TasteHub now partners with 
+            hundreds of restaurants serving thousands of happy customers daily.
           </p>
         </div>
+
         <div className="about-section">
+          <div className="section-icon">star</div>
           <h2>Why Choose Us?</h2>
           <ul>
-            <li>Wide selection of restaurants</li>
-            <li>Fast and reliable delivery</li>
-            <li>Easy-to-use app and website</li>
-            <li>Excellent customer service</li>
+            <li><span className="list-icon">check</span> 150+ restaurant partners</li>
+            <li><span className="list-icon">check</span> 30-min average delivery</li>
+            <li><span className="list-icon">check</span> Easy-to-use platform</li>
+            <li><span className="list-icon">check</span> 24/7 customer support</li>
           </ul>
         </div>
-        <div className="about-section">
+
+        <div className="about-section contact-section">
+          <div className="section-icon">contact_support</div>
           <h2>Contact Us</h2>
-          <p>Have questions or feedback? We'd love to hear from you!</p>
-          <p>Email: contact@tastehub.com</p>
-          <p>Phone: +1 (555) 123-4567</p>
+          <div className="contact-info-about">
+            <p><span className="contact-icon">email</span> contact@tastehub.com</p>
+            <p><span className="contact-icon">phone</span> +1 (555) 123-4567</p>
+          </div>
+        </div>
+
+        <div className="about-section">
+          <div className="section-icon">location_on</div>
+          <h2>Our Locations</h2>
+          <p>
+            Serving cities across the country with plans to expand internationally.
+            Check our website for the latest locations.
+          </p>
+        </div>
+
+        <div className="about-section">
+          <div className="section-icon">feedback</div>
+          <h2>Customer Feedback</h2>
+          <p>
+            We value your feedback! Share your experience with us to help improve our service.
+          </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
