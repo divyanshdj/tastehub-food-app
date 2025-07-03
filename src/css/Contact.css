@@ -1,0 +1,137 @@
+/* Container */
+.contact-container {
+  width: 100%;
+  padding: 3rem 20%;
+  text-align: center;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Title */
+.contact-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  position: relative;
+}
+
+.contact-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #f59e0b;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.contact-subtitle {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Contact Card */
+.contact-item {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #f59e0b;
+}
+
+/* Icon styling */
+.contact-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.5rem;
+  color: #f59e0b;
+  transition: all 0.3s ease;
+}
+
+/* Heading */
+.contact-item h2 {
+  font-size: 1.375rem;
+  color: #111827;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Text */
+.contact-item p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.contact-hours {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-top: 1rem !important;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 2rem;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 1.5rem;
+  }
+  
+  .contact-title {
+    font-size: 1.75rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-item {
+    padding: 1.5rem;
+  }
+  
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+  }
+}

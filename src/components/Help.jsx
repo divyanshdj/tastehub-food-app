@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/Help.css";
 
 const Help = () => {
+  const navigate = useNavigate();
   const faqs = [
     {
       question: "How do I create an account?",
@@ -13,7 +15,7 @@ const Help = () => {
     },
     {
       question: "How do I contact customer support?",
-      answer: "You can contact our customer support team at support@example.com or call us at +1 (123) 456-7890.",
+      answer: "You can contact our customer support team at support@tastehub.com or call us at +91 012-345-6789.",
     },
     {
       question: "How do I verify my account with OTP?",
@@ -43,34 +45,41 @@ const Help = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const handleContactClick = () => {
+    navigate("/contact");
+  };
+
   return (
-    <div className="help-container">
-      <div className="help-content">
-        <h1 className="help-title">Help & Support</h1>
-        <p className="help-description">
-          Let's take a step ahead and help you better.
-        </p>
-        <h2 className="faq-title">Frequently Asked Questions</h2>
-        <div className="faq-container">
+    <div className="help-page">
+      <div className="help-header">
+        <h1>Help Center</h1>
+        <p>Find answers to common questions or contact our support team directly.</p>
+        <button className="contact-button" onClick={handleContactClick}>
+            Contact Support
+            <svg className="button-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" strokeWidth="2"/>
+              <path d="M8 12H16M16 12L12 8M16 12L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+      </div>
+
+      <div className="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq-list">
           {faqs.map((faq, index) => (
             <div key={index} className="faq-item">
-              <button
-                className="faq-question"
+              <button 
+                className={`faq-question ${openIndex === index ? 'active' : ''}`}
                 onClick={() => handleToggleAccordion(index)}
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
               >
-                {faq.question}{" "}
-                <span className="material-symbols-outlined">
-                  {openIndex === index ? "remove" : "add"}
-                </span>
+                {faq.question}
+                <span>{openIndex === index ? '−' : '+'}</span>
               </button>
-              <div
-                id={`faq-answer-${index}`}
-                className={`faq-answer ${openIndex === index ? "show" : ""}`}
-              >
-                {faq.answer}
-              </div>
+              {openIndex === index && (
+                <div className="faq-answer">
+                  {faq.answer}
+                </div>
+              )}
             </div>
           ))}
         </div>

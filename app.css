@@ -73,7 +73,7 @@ body {
 #search {
   border: 0.4px solid black;
   width: 30vmax;
-  padding: 5px 20px;
+  padding: 7px 20px;
   border-radius: 10px;
 }
 
@@ -317,8 +317,16 @@ body {
 
 .shimmer-header input,
 .shimmer-header button {
-  background-color: rgba(128, 128, 128, 0.236);
+  background-color: rgba(192, 192, 192, 0.236);
   border-radius: 25px;
+}
+
+.shimmer-header .search-bar #search, .shimmer-header .filter-btn {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  overflow: hidden;
+  animation: shimmer 1.5s infinite linear;
 }
 
 .shimmer-header button {
@@ -507,53 +515,6 @@ body {
 }
 .footer-menu-item h6 {
   font-weight: 300;
-}
-
-.contact-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 15px 30px;
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-.contact-title {
-  text-align: center;
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.contact-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-}
-
-.contact-item {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.contact-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.contact-item h2 {
-  font-size: 1.5em;
-  color: #000;
-  margin-bottom: 10px;
-}
-
-.contact-item p {
-  font-size: 1em;
-  color: #555;
-  margin: 5px 0;
 }
 
 .offline-container {
