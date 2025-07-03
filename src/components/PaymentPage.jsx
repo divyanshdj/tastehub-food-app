@@ -74,6 +74,8 @@ const PaymentPage = () => {
   };
 
   return (
+    <>
+    <h1 className="payment-page-title">Payment</h1>
     <div
       className="payment-page"
       style={{
@@ -86,8 +88,6 @@ const PaymentPage = () => {
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       }}
     >
-      <h1 style={{ textAlign: "center", marginBottom: "30px" }}>Payment</h1>
-
       <h2 style={{ borderBottom: "1px solid #ccc", paddingBottom: "10px" }}>
         Order Summary
       </h2>
@@ -256,6 +256,7 @@ const PaymentPage = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 

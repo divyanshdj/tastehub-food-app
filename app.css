@@ -41,17 +41,65 @@ body {
   gap: 20px;
 }
 
-.nav ul li {
+.nav ul li{
   list-style: none;
 }
 
 .nav ul li a {
   text-decoration: none;
   color: #fff;
-  font-weight: 400;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 20px; /* Rounded pill shape */
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
+
 .nav ul li a:hover {
-  text-decoration: underline;
+  color: #fff;
+  background-color: rgba(245, 158, 11, 0.2); /* Semi-transparent orange */
+  border-color: #f59e0b;
+  transform: translateY(-2px);
+}
+
+/* Optional: Add a subtle glow effect on hover */
+.nav ul li a:hover::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 22px;
+  border: 1px solid #f59e0b;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Active Link Styling */
+.nav ul li.active,
+.nav-items-sidebar li.active {
+  background-color: rgba(245, 158, 11, 0.15); /* Subtle orange bg */
+  color: #f59e0b;
+  border-radius: 22px;
+  border: 1px solid #f59e0b;
+  padding: 8px 0px;
+  font-weight: 600;
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
 }
 
 .nav-items {

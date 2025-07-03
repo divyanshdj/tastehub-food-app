@@ -62,7 +62,6 @@ const CartPage = () => {
           <img
             src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png"
             alt="cart-empty"
-            style={{ height: "400px" }}
           />
           <h2>Your cart is empty!</h2>
           <h3>You can go to home page to view more restaurants</h3>
@@ -74,7 +73,7 @@ const CartPage = () => {
         </div>
       ) : (
         <div className="cart-page">
-          <h1>Cart</h1>
+          <h1 className="cart-page-title">Cart</h1>
           <div className="cart-items">
             {cartItems.map((item) => (
               <div key={item.card.info.id} className="cart-item-card">
