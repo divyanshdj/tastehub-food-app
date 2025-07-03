@@ -433,11 +433,6 @@ body {
   padding: 10px 20px;
 }
 
-.shimmer-container-filter{
-  display: flex;
-  gap: 3px;
-}
-
 .shimmer-filter{
   border: none;
 }
@@ -1074,9 +1069,18 @@ body {
     min-width: 80px;
   }
 
+  .shimmer-header{
+    height: 25vh;
+  }
+
   .shimmer-search{
   width: 75vw;
   padding: 10px 20px;
+}
+
+.cuisine-dropdown .filter-btn {
+  position: relative;
+  padding-right: 120px;
 }
 }
 

@@ -7,7 +7,7 @@ const Shimmer = () => {
         <div className="help-search">
           <input type="search" name="search" id="search" className="search-input shimmer-search" />
         </div>
-        <div className="filter shimmer-container-filter">
+        <div className="filter">
           <button className="filter-btn shimmer-filter"></button>
           <button className="filter-btn shimmer-filter"></button>
           <button className="filter-btn shimmer-filter"></button>
