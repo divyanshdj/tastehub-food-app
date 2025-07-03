@@ -90,8 +90,7 @@ body {
 }
 
 /* Active Link Styling */
-.nav ul li.active,
-.nav-items-sidebar li.active {
+.nav ul li.active, .nav-items-sidebar li.active {
   background-color: rgba(245, 158, 11, 0.15); /* Subtle orange bg */
   color: #f59e0b;
   border-radius: 22px;
@@ -300,11 +299,6 @@ body {
   padding: 5px 10px 5px 10px;
   color: #000;
   font-weight: 400;
-}
-.nav-items-sidebar li a:hover {
-  text-decoration: underline;
-  background-color: #00000088;
-  color: #fff;
 }
 
 .menu-btn {
