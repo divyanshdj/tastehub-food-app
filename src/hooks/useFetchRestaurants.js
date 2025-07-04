@@ -6,6 +6,7 @@ import { API_URL_DESKTOP, API_URL_MOBILE } from "../utils/constant";
 const useFetchRestaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [jsonData, setJsonData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +26,8 @@ const useFetchRestaurants = () => {
         }
 
         const jsonData = await response.json();
+
+        setJsonData(jsonData);
 
         // Extract restaurants differently based on device
         let apiRestaurants = [];
@@ -53,7 +56,7 @@ const useFetchRestaurants = () => {
     fetchData();
   }, []);
 
-  return { restaurants, isLoading };
+  return { restaurants, isLoading, jsonData };
 };
 
 export default useFetchRestaurants;

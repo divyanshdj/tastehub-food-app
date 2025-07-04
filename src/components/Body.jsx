@@ -7,6 +7,7 @@ import useFetchRestaurants from "../hooks/useFetchRestaurants";
 import useSearch from "../hooks/useSearch";
 import useCuisineFilter from "../hooks/useCuisineFilter";
 import useOnlineStatus from "../hooks/useOnlineStatus.js";
+import ItemCorousel from "./ItemCorousel.jsx";
 
 const Body = () => {
   const { restaurants, isLoading } = useFetchRestaurants();
@@ -29,6 +30,15 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
   const ReastaurentVegCard = withVegLabelCard(ReastaurentCard);
+
+  const handleSearchTextChange = (e) => {
+    setSearchText(e.target.value);
+    if (e.target.value === '') {
+      setFilteredRestaurants(restaurants);
+      setActiveFilter(null);
+    }
+    setActiveFilter('search');
+  }
 
   const handleTopRatedFilter = () => {
     const filteredList = restaurants.filter((res) => res.info.avgRating > 4.1);
@@ -70,7 +80,7 @@ const Body = () => {
           name="search"
           id="search"
           value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={handleSearchTextChange}
           placeholder="Search restaurants..."
           className="search-input"
         />
@@ -87,6 +97,18 @@ const Body = () => {
           <span className="material-symbols-outlined search-icon">search</span>
         </button>
       </div>
+
+      {activeFilter !== 'search' && (
+        <ItemCorousel />
+      )}
+
+      {restaurants.length > 0 && searchedRestaurants.length > 0 && (
+        <div className="restaurant-count">
+          <h2 className="carousel-title">
+            {searchedRestaurants.length} Restaurants Found
+          </h2>
+        </div>
+      )}
 
       <div className="filter">
         <button
@@ -163,6 +185,10 @@ const Body = () => {
 </div>
         )}
       </div>
+
+      {activeFilter === 'search' && (
+        <ItemCorousel />
+      )}
     </div>
   );
 };

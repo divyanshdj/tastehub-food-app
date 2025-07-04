@@ -30,14 +30,29 @@
   letter-spacing: -0.015em;
 }
 
+.about-title::after{
+    content: '';
+    display: block;
+    width: 30vw;
+    height: 2px;
+    background: linear-gradient(90deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,107,0,0.3) 20%, 
+                #ff6b00 50%, 
+                rgba(255,107,0,0.3) 80%, 
+                rgba(255,255,255,0) 100%);
+    box-shadow: 0 2px 4px rgba(255,107,0,0.2);
+    margin: 1rem auto;
+}
+
+/* Optional: Add animation for extra polish */
+@keyframes underline-grow {
+    from { width: 0vw; opacity: 0; }
+    to { width: 30vw; opacity: 1; }
+}
+
 .about-title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: #f59e0b;
-  margin: 1rem auto 0;
-  border-radius: 2px;
+    animation: underline-grow 2s ease-out forwards;
 }
 
 .about-subtitle {
