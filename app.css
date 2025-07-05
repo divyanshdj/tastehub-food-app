@@ -607,58 +607,150 @@ body {
   align-items: center;
 }
 
-.resMenuName {
+.resMenuName,.menu-h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+.resMenuName::after, .menu-h1::after {
+    content: '';
+    display: block;
+    width: 30vw;
+    height: 2px;
+    background: linear-gradient(90deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,107,0,0.3) 20%, 
+                #ff6b00 50%, 
+                rgba(255,107,0,0.3) 80%, 
+                rgba(255,255,255,0) 100%);
+    box-shadow: 0 2px 4px rgba(255,107,0,0.2);
+    margin: 1rem auto;
+}
+
+.resMenuName::after{
+    animation: underline-grow 2s ease-out forwards;
+}
+
+.menu-h1{
   font-weight: 700;
-  margin-top: 5px;
-  color: #151515;
+  font-size: 2rem;
+}
+
+.menu-h1::after{
+    width: 70vw;
+    animation: underline-grow-menu 2s ease-out forwards;
+}
+
+@keyframes underline-grow-menu {
+  from {
+    width: 0;
+  }
+  to {
+    width: 70vw;
+  }
 }
 
 .resMenuDetailCard {
-  padding: 1.5rem;
-  margin: 1rem 0;
-  width: 60vw;
-  min-height: 20vh;
-  background: white;
-  border: 1px solid #f0f0f0;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+  background: rgb(255, 255, 255);
+  border-radius: 0.75rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  min-width: 40vw;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Header Row */
+.headerRow {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  gap: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.resMenuDetailCard:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  transition: all 0.3 ease;
-}
-
-.resMenuDetailTitle {
+.ratingPill,.costForTwo {
   display: flex;
   align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  background: #fffbeb;
+  border-radius: 1rem;
+  color: #92400e;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
-.resMenuDetailCuisines {
-  color: #a91d3a;
-  font-weight: 600;
+.ratingPill .material-symbols-outlined {
+  font-size: 1.3rem;
+  color: #f59e0b;
 }
 
-.resMenuDetailOutlet {
-  font-weight: 600;
-  color: #151515;
+.divider {
+  color: #000000;
+  margin: 0 0.25rem;
 }
 
-.resMenuDetailOutlet span {
-  font-weight: 400;
+/* Cuisines */
+.cuisines {
+  text-align: center;
+  font-size: 1rem;
+  color: #5f0013;
+  margin: 0.5rem 0 1rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-.line {
-  height: 0.3px;
-  width: 70%;
-  background-color: #2d2d2d;
+/* Info Grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.icon {
+  font-size: 1.25rem;
+  color: #f59e0b;
+  margin-top: 0.125rem;
+}
+
+.infoLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.125rem;
+}
+
+.infoValue {
+  font-size: 0.875rem;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .headerRow {
+    gap: 0.75rem;
+  }
 }
 
 .footer-menu-item {
@@ -1123,6 +1215,10 @@ body {
 .cuisine-dropdown .filter-btn {
   position: relative;
   padding-right: 120px;
+}
+
+.infoItem {
+  justify-content: start;
 }
 }
 

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ShimmerMenu from "./ShimmerMenu";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import RestaurentCategory from "./RestaurentCategory";
-import "../css/RestaurentMenu.css"; // Ensure this CSS file includes responsive styles
+import "../css/RestaurentMenu.css";
 
 const RestaurentMenu = () => {
   const { resId } = useParams();
@@ -21,9 +21,10 @@ const RestaurentMenu = () => {
     cuisines = [],
     costForTwoMessage = "",
     areaName = "",
-  } = ResInfo?.cards?.find(
-    (card) => card?.card?.card?.info
-  )?.card?.card?.info || {};
+  } = ResInfo?.cards?.find((card) => card?.card?.card?.info)?.card?.card
+    ?.info || {};
+
+    console.log(ResInfo);
 
   // Safe groupedCard access
   const groupedCard = ResInfo?.cards?.find((c) => c.groupedCard)?.groupedCard;
@@ -44,22 +45,49 @@ const RestaurentMenu = () => {
       <h1 className="resMenuName">{name}</h1>
 
       <div className="resMenuDetailCard">
-        <h4 className="resMenuDetailTitle">
-          <span className="material-symbols-outlined">star</span>&nbsp;
-          {avgRating} ({totalRatingsString}) &nbsp;|&nbsp; {costForTwoMessage}
-        </h4>
-        <h3 className="resMenuDetailCuisines">{cuisines.join(", ")}</h3>
-        <h4 className="resMenuDetailOutlet">
-          Outlet : <span>{areaName}</span>
-        </h4>
-        <h4 className="resMenuDetailTitle">
-          <span className="material-symbols-outlined">schedule</span>&nbsp;
-          30 mins
-        </h4>
+        <div className="headerRow">
+          <div className="ratingPill">
+            <span className="material-symbols-outlined">star</span>
+            <span className="ratingText">
+              {avgRating} <span className="divider">•</span>{" "}
+              {totalRatingsString}
+            </span>
+          </div>
+          <div className="costForTwo">{costForTwoMessage}</div>
+        </div>
+
+        <h3 className="cuisines">{cuisines.join(", ")}</h3>
+
+        <div className="infoGrid">
+          <div className="infoItem">
+            <span className="material-symbols-outlined icon">store</span>
+            <div>
+              <div className="infoLabel">Outlet</div>
+              <div className="infoValue">{areaName}</div>
+            </div>
+          </div>
+
+            <div className="infoItem">
+              <span className="material-symbols-outlined icon">
+                location_on
+              </span>
+              <div>
+                <div className="infoLabel">Locality</div>
+                <div className="infoValue">{locality}</div>
+              </div>
+            </div>
+
+          <div className="infoItem">
+            <span className="material-symbols-outlined icon">schedule</span>
+            <div>
+              <div className="infoLabel">Delivery</div>
+              <div className="infoValue">30 mins</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h1>MENU</h1>
-      <div className="line"></div>
+      <h1 className="menu-h1">MENU</h1>
 
       <div className="menuCardItems">
         {Category.map((cat, index) => (

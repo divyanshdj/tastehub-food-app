@@ -87,3 +87,84 @@
   margin: 90px 10px 0px 10px;
   cursor: pointer;
 }
+
+.res-menu-btn:hover:not(.disabled) {
+  background: #388e3c;
+  color: #fff;
+}
+
+.res-menu-btn.disabled {
+  background: #f5f5f5;
+  color: #999;
+  border-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+/* Cart Quantity */
+.cart-quantity {
+  position: absolute;
+  background: #388e3c;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin: -68px 9px 10px 21px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.menu-details-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dietary-indicator {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.dietary-indicator.veg {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.dietary-indicator.non-veg {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+/* Rating */
+.item-rating {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  margin: 8px 0;
+}
+
+.rating-star {
+  color: #ffb400;
+  margin-right: 4px;
+  font-size: 14px;
+}
+
+.rating-count {
+  margin-left: 4px;
+  color: #999;
+}
+
+/* Stock Status */
+.stock-status {
+  font-size: 13px;
+  color: #d32f2f;
+  font-weight: 500;
+  margin: 8px 0;
+}
