@@ -1,5 +1,5 @@
 // URLs for desktop and mobile APIs
-export const API_URL_DESKTOP = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.26920&lng=73.00900&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+export const API_URL_DESKTOP = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING";
 
 export const API_URL_MOBILE = "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=26.26920&lng=73.00900&carousel=true&third_party_vendor=1";
 

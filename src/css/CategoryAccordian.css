@@ -168,3 +168,17 @@
   font-weight: 500;
   margin: 8px 0;
 }
+
+.imageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.resMenuBanner{
+  height: 25vh; 
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}

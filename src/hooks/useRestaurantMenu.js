@@ -13,7 +13,7 @@ const useRestaurantMenu = (resId) => {
         const corsProxyUrl = "https://proxy.cors.sh/";
         const response = await fetch(corsProxyUrl + API_URL + resId, {
           headers: {
-            "x-cors-api-key": "temp_227a49e8270c204bd2c2dd65ea55870a",
+            "x-cors-api-key": "temp_314ab88ddc4f3f9dc90aa107a6d2896d",
           },
         });
 
@@ -25,6 +25,7 @@ const useRestaurantMenu = (resId) => {
 
         const json = await response.json();
         console.log("Fetched Menu Data Successfully for ResId:", resId);
+        console.log(json?.data)
         setResInfo(json?.data);
       } catch (error) {
         console.error("Error fetching menu:", error);

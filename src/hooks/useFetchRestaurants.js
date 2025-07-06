@@ -17,7 +17,7 @@ const useFetchRestaurants = () => {
 
         const response = await fetch(corsProxyUrl + selectedApiUrl, {
           headers: {
-            "x-cors-api-key": "temp_b115edb34e36afa3d0962dc415067871",
+            "x-cors-api-key": "temp_314ab88ddc4f3f9dc90aa107a6d2896d",
           },
         });
 

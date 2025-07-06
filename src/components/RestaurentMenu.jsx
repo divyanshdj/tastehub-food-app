@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ShimmerMenu from "./ShimmerMenu";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import RestaurentCategory from "./RestaurentCategory";
+import { CDN2_URL } from "../utils/constant";
 import "../css/RestaurentMenu.css";
 
 const RestaurentMenu = () => {
@@ -21,10 +22,11 @@ const RestaurentMenu = () => {
     cuisines = [],
     costForTwoMessage = "",
     areaName = "",
+    cloudinaryImageId,
   } = ResInfo?.cards?.find((card) => card?.card?.card?.info)?.card?.card
     ?.info || {};
 
-    console.log(ResInfo);
+  console.log(ResInfo);
 
   // Safe groupedCard access
   const groupedCard = ResInfo?.cards?.find((c) => c.groupedCard)?.groupedCard;
@@ -45,27 +47,38 @@ const RestaurentMenu = () => {
       <h1 className="resMenuName">{name}</h1>
 
       <div className="resMenuDetailCard">
-        <div className="headerRow">
-          <div className="ratingPill">
-            <span className="material-symbols-outlined">star</span>
-            <span className="ratingText">
-              {avgRating} <span className="divider">•</span>{" "}
-              {totalRatingsString}
-            </span>
-          </div>
-          <div className="costForTwo">{costForTwoMessage}</div>
+        {cloudinaryImageId && (
+          <div className="imageContainer">
+          <img
+            className="resMenuBanner"
+            src={`${CDN2_URL}${cloudinaryImageId}`}
+            alt={name}
+          />
         </div>
+        )}
 
-        <h3 className="cuisines">{cuisines.join(", ")}</h3>
-
-        <div className="infoGrid">
-          <div className="infoItem">
-            <span className="material-symbols-outlined icon">store</span>
-            <div>
-              <div className="infoLabel">Outlet</div>
-              <div className="infoValue">{areaName}</div>
+        <div className="cardContent">
+          <div className="headerRow">
+            <div className="ratingPill">
+              <span className="material-symbols-outlined starIcon">star</span>
+              <span className="ratingText">
+                {avgRating} <span className="divider">•</span>{" "}
+                {totalRatingsString}
+              </span>
             </div>
+            <div className="costForTwo">{costForTwoMessage}</div>
           </div>
+
+          <h3 className="cuisines">{cuisines.join(", ")}</h3>
+
+          <div className="infoGrid">
+            <div className="infoItem">
+              <span className="material-symbols-outlined icon">store</span>
+              <div>
+                <div className="infoLabel">Outlet</div>
+                <div className="infoValue">{areaName}</div>
+              </div>
+            </div>
 
             <div className="infoItem">
               <span className="material-symbols-outlined icon">
@@ -77,11 +90,12 @@ const RestaurentMenu = () => {
               </div>
             </div>
 
-          <div className="infoItem">
-            <span className="material-symbols-outlined icon">schedule</span>
-            <div>
-              <div className="infoLabel">Delivery</div>
-              <div className="infoValue">30 mins</div>
+            <div className="infoItem">
+              <span className="material-symbols-outlined icon">schedule</span>
+              <div>
+                <div className="infoLabel">Delivery</div>
+                <div className="infoValue">30 mins</div>
+              </div>
             </div>
           </div>
         </div>
