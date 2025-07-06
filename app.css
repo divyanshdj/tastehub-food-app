@@ -31,7 +31,6 @@ body {
 
 /* Optional: Add a shrink effect when scrolling */
 .shrink-header {
-  height: 8vh;
   background-color: rgba(45, 45, 45, 0.95);
 }
 
