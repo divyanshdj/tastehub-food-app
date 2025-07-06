@@ -10,6 +10,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px 0px;
+}
+
+.accordian-header:hover{
+  background-color: rgb(240, 240, 240);
 }
 
 .accordian-title {

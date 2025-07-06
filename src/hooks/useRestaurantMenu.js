@@ -25,7 +25,6 @@ const useRestaurantMenu = (resId) => {
 
         const json = await response.json();
         console.log("Fetched Menu Data Successfully for ResId:", resId);
-        console.log(json?.data)
         setResInfo(json?.data);
       } catch (error) {
         console.error("Error fetching menu:", error);
