@@ -64,8 +64,8 @@ const CartPage = () => {
             alt="cart-empty"
           />
           <h2>Your cart is empty!</h2>
-          <h3>You can go to home page to view more restaurants</h3>
-          <div className="link-home-btn">
+          <h3>You can go to home page to view more restaurants.</h3>
+          <div className="link-home-btn contact-button">
             <Link to="/">
               Home <span className="material-symbols-outlined">open_in_new</span>
             </Link>

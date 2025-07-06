@@ -26,34 +26,21 @@
 .cart-page-empty h3 {
   text-align: center;
   font-size: x-large;
-  font-weight: normal;
+  font-weight: 400;
   color: #333;
   margin-bottom: 10px;
 }
 
 .link-home-btn {
-  background-color: #333;
-  color: #fff;
-  font-size: 1.1rem;
-  margin: 20px auto;
-  padding: 10px 28px;
-  border: none;
-  border-radius: 9999px; /* fully pill-shaped */
-  cursor: pointer;
-  display: inline-block;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #000000;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 15px;
 }
 
 .link-home-btn:hover {
   background-color: #f59e0b;
-  color: #1a1a1a;
-  transform: translateY(-2px);
-}
-
-.link-home-btn:focus {
-  outline: 2px solid #f59e0b;
-  outline-offset: 3px;
+  border-top: 0px solid transparent;
 }
 
 .link-home-btn a {
@@ -288,6 +275,10 @@
     font-size: 1rem;
     font-weight: normal;
     margin-bottom: 10px;
+  }
+
+  .link-home-btn{
+    font-size: 1rem;
   }
 }
 
