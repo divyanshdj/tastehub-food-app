@@ -16,6 +16,7 @@ import CartPage from "./components/CartPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PaymentPage from "./components/PaymentPage";
+import Profile from "./components/Profile";
 
 const About = lazy(() => import("./components/About"));
 
@@ -78,6 +79,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/payment",
         element: <PaymentPage />,
+      },
+      {
+        path: "/profile",
+        element: <Profile/>,
       },
     ],
     errorElement: <Error />,

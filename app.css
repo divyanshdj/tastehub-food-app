@@ -213,18 +213,45 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px;
+  gap: 2px;
+  padding: 4px 10px;
   margin-left: 10px;
   cursor: pointer;
   border: 0.5px solid transparent;
+  border-radius: 50px;
   background-color: transparent;
   color: white;
-  font-size: 1vw;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .loginBtn:hover{
-  border: 0.5px solid white;
+  border: 1px solid #f59e0b;
+  color: #fff;
+  background-color: rgba(245, 158, 11, 0.2); /* Semi-transparent orange */
+}
+
+.login-icon-btn{
+  font-size: 0.9vw;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.user-name {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: background-color 0.2s, border 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid transparent;
 }
 
 .rest-container {
@@ -1111,6 +1138,13 @@ body {
   .nav {
     display: none;
   }
+  .loginBtn,.logout-btn{
+    font-size: 0.8rem;
+    color: black;
+  }
+  .loginBtn:hover,.logout-btn:hover{
+    color: black;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -1137,9 +1171,6 @@ body {
   }
   .nav ul li {
     font-size: 1.8vw;
-  }
-  .loginBtn {
-    font-size: 2vw;
   }
 }
 
@@ -1303,9 +1334,6 @@ body {
   }
   .location {
     font-size: 2.7vw;
-  }
-  .loginBtn {
-    font-size: 3vw;
   }
 }
 

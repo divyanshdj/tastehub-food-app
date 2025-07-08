@@ -2,21 +2,26 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import { useSelector } from "react-redux";
+import LoginPopUp from "./LoginPopUp";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  const [LoginBtnName, setLoginBtnName] = useState("Login");
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const location = useLocation();
   const onlineStatus = useOnlineStatus();
   const sidebarRef = useRef(null);
   const [shrunk, setShrunk] = useState(false);
-
-  const toggleLogin = () => {
-    setLoginBtnName((prev) => (prev === "Login" ? "Logout" : "Login"));
-  };
+  const [showLoginPopUp, setShowLoginPopUp] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleShowLogin = () => {
+    setShowLoginPopUp(true);
+    setIsSidebarVisible(false);
+  }
+
+  const user = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +43,8 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
+    <>
+    {showLoginPopUp && <LoginPopUp setShowLoginPopUp={setShowLoginPopUp} setIsSidebarVisible={setIsSidebarVisible}/>}
     <div className={`header ${shrunk ? 'shrink-header' : ''}`}>
       <svg
         className="menu-btn"
@@ -76,10 +83,23 @@ const Header = () => {
     <span className="cart-items-size">{cartItems.length}</span>
   )}
         </Link>
-        <button className="loginBtn hide" onClick={toggleLogin}>
-          {LoginBtnName}
-          <span className="material-symbols-outlined">{LoginBtnName.toLowerCase()}</span>
-        </button>
+        {user ? (
+  <div className="user-dropdown-container hide">
+    <button
+      onClick={() => navigate("/profile")}
+      className="loginBtn user-name-btn"
+    >
+      Hello, {user.displayName || user.email.split("@")[0]}
+      <span className="material-symbols-outlined">expand_more</span>
+    </button>
+  </div>
+) : (
+  <button className="loginBtn hide" onClick={handleShowLogin}>
+    Login
+    <span className="material-symbols-outlined login-icon-btn">login</span>
+  </button>
+)}
+
       </div>
 
       <ul
@@ -103,18 +123,28 @@ const Header = () => {
           Status : {onlineStatus ? "✅ Online" : "🔴 Offline"}
         </li>
 
-        <li>
-          <button
-            className="loginBtn"
-            style={{ backgroundColor: "white", color: "black" }}
-            onClick={toggleLogin}
-          >
-            {LoginBtnName}
-            <span className="material-symbols-outlined">{LoginBtnName.toLowerCase()}</span>
-          </button>
-        </li>
+        {user ? (
+  <li className="user-dropdown-container">
+    <button
+      onClick={() => navigate("/profile")}
+      className="loginBtn user-name-btn"
+    >
+      Hello, {user.email.split("@")[0]}
+      <span className="material-symbols-outlined">expand_more</span>
+    </button>
+  </li>
+) : (
+  <li>
+    <button className="loginBtn" onClick={handleShowLogin}>
+      Login
+      <span className="material-symbols-outlined login-icon-btn">login</span>
+    </button>
+  </li>
+)}
+
       </ul>
     </div>
+    </>
   );
 };
 
