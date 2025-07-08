@@ -13,7 +13,7 @@
 
 .login-popup-container {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   width: 100%;
   max-width: 400px;
@@ -166,4 +166,10 @@
 
 .login-popup-toggle-btn:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .login-popup-container{
+    width: 90%;
+  }
 }
